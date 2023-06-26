@@ -45,17 +45,15 @@ const dogs = [
   { weight: 32, curFood: 340, owners: ["Dima"] },
 ];
 
-function masDogs() {
-  const recoment = dogs.forEach(function (dog) {
-    dog.recommendedFood = Math.round(dog.weight ** 0.75 * 28); //добавили новое свойство
-    console.log(dog.recommendedFood);
-  });
-}
+const recoment = dogs.forEach(function (dog) {
+  dog.recommendedFood = Math.round(dog.weight ** 0.75 * 28); //добавили новое свойство
+  console.log(dog.recommendedFood);
+});
 
-masDogs();
 //2
 
-function userDog() {
+//3
+function userDogs() {
   const findUser = dogs.find(function (value) {
     return value.owners.includes("Marina");
   });
@@ -67,6 +65,25 @@ function userDog() {
   );
 }
 
-userDog();
+userDogs();
 
 //3
+
+function ownersEat() {
+  //собаки, которые едят больше рекомендованной нормы
+  const ownersEatTooMuch = dogs
+    .filter((dog) => dog.curFood > dog.recommendedFood)
+    .map((dog) => dog.owners)
+    .flat();
+  console.log(ownersEatTooMuch);
+  //собаки, которые едят меньше рекомендованной нормы
+  const ownersEatTooLittle = dogs
+    .filter((dog) => dog.curFood < dog.recommendedFood)
+    .map((dog) => dog.owners)
+    .flat();
+  console.log(ownersEatTooLittle);
+}
+
+ownersEat();
+
+//4
