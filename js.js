@@ -82,8 +82,28 @@ function ownersEat() {
     .map((dog) => dog.owners)
     .flat();
   console.log(ownersEatTooLittle);
+
+  //4
+  //Собаки Masha и Marina и Ivan едят слишком много! Собаки Anna и Viktor и Dima едят слишком мало!
+  console.log(
+    `Собаки ${ownersEatTooMuch.join(
+      " и "
+    )} едят слишком много! Собаки ${ownersEatTooLittle.join(
+      " и "
+    )} едят слишком мало!`
+  );
 }
 
 ownersEat();
 
-//4
+//5
+function normResult() {
+  const someResult = dogs.some(function (dog) {
+    return dog.curFood == dog.recommendedFood;
+  });
+  console.log(someResult); //false
+}
+
+normResult();
+
+//6
