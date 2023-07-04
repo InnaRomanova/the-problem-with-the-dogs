@@ -107,3 +107,26 @@ function normResult() {
 normResult();
 
 //6
+console.log(
+  dogs.some(
+    (dog) =>
+      dog.curFood < dog.recommendedFood * 0.9 &&
+      dog.curFood < dog.recommendedFood * 1.1
+  )
+);
+
+//7
+console.log(
+  dogs.filter(function (dog) {
+    return (
+      dog.curFood < dog.recommendedFood * 0.9 &&
+      dog.curFood < dog.recommendedFood * 1.1
+    );
+  })
+);
+
+//8
+const dogsSort = dogs
+  .slice()
+  .sort((a, b) => a.recommendedFood - b.recommendedFood);
+console.log(dogsSort);
